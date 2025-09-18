@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Turbulencia atmosférica — Demo
+title: Turbulencia atmosférica
 permalink: /index.html
 ---
 
@@ -73,3 +73,4 @@ El estudio de la turbulencia atmosférica ha evolucionado a lo largo de más de 
 - Wyngaard, J. C. (2010). *Turbulence in the atmosphere*. Cambridge University Press.
 
 [Teoría K41]({{ '/K41.html' | relative_url }})
+
