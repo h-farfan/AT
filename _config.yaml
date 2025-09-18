@@ -1,0 +1,5 @@
+title: Turbulencia atmosférica — Demo
+url: https://h-farfan.github.io
+baseurl: /turbulencia-demo   # si alguna vez publicas como "user site", cámbialo a: /
+markdown: kramdown
+theme: null                  # usamos tu propio CSS, no un theme de Jekyll

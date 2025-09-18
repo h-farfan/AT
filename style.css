@@ -1,0 +1,589 @@
+/* ============== */
+/* TOKENS + THEME */
+/* ============== */
+
+/* Día (por defecto) */
+:root{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+
+  --bg: #f8fafc;
+  --text: #1a1a1a;
+
+  --header-bg: linear-gradient(180deg, #eef2ff, #ffffff);
+  --footer-bg: #f1f5f9;
+
+  --muted: #555;
+  --muted-2: #666;
+  --primary: #2563eb;
+  --primary-strong: #1e40af;
+  --accent: #3730a3;
+
+  --card-bg: #f9f9f9;
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(229, 231, 235, 0.4);
+  --glass-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+
+  --border: #e5e7eb;
+
+  /* Nubes (cielo día) */
+  --clouds-top: #c9dbe9;
+  --clouds-bottom: #ffffff;
+  --cloud-color: rgba(255, 255, 255, 0.7);
+
+  /* Sidebar */
+  --sidebar-bg: #f8fafc;
+  --sidebar-border: #e5e7eb;
+
+  /* TOC activo */
+  --toc-text: #1f2937;
+  --toc-active: #4f46e5;
+
+  /* Botón */
+  --btn-bg: #2563eb;
+  --btn-bg-hover: #1e40af;
+  --btn-text: #ffffff;
+}
+
+/* Noche */
+.dark-mode{
+  --bg: #1a1a1a;
+  --text: #f8fafc;
+
+  --header-bg: #111827;
+  --footer-bg: #111827;
+
+  --muted: #d1d5db;
+  --muted-2: #d1d5db;
+  --primary: #93c5fd;
+  --primary-strong: #93c5fd; /* hover no cambia mucho en oscuro, puedes ajustar */
+  --accent: #a5b4fc;
+
+  --card-bg: #1f2937;
+  --glass-bg: rgba(17, 24, 39, 0.5);
+  --glass-border: rgba(55, 65, 81, 0.7);
+  --glass-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+
+  --border: #374151;
+
+  --clouds-top: #000000;
+  --clouds-bottom: #111827;
+  --cloud-color: rgba(255, 255, 255, 0.15);
+
+  --sidebar-bg: #0b1220;
+  --sidebar-border: #374151;
+
+  --toc-text: #e5e7eb;
+  --toc-active: #93c5fd;
+
+  --btn-bg: #2563eb;      /* puedes usar otro en oscuro si quieres */
+  --btn-bg-hover: #1e40af;
+  --btn-text: #ffffff;
+}
+
+/* Transición suave SOLO durante el cambio de tema */
+html.is-theming *, html.is-theming *::before, html.is-theming *::after{
+  transition:
+    background-color .28s ease,
+    color .28s ease,
+    border-color .28s ease,
+    fill .28s ease,
+    stroke .28s ease,
+    box-shadow .28s ease;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html.is-theming *, html.is-theming *::before, html.is-theming *::after{
+    transition: none !important;
+  }
+}
+
+/* ===== BASE ===== */
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1 { margin: 0 0 .5rem; }
+
+/* ===== HEADER ===== */
+header {
+  padding: 2rem 1rem;
+  text-align: center;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.pill {
+  display: inline-block;
+  background: #eef2ff; /* puedes pasarlo a token si quieres */
+  color: var(--accent);
+  padding: .25rem .5rem;
+  border-radius: 999px;
+  font-size: .8rem;
+}
+
+/* Contraste del header en oscuro: ya lo maneja var(--text) / tokens */
+
+/* ===== MAIN ===== */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+figure { margin: 0; }
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+figcaption {
+  font-size: .9rem;
+  color: var(--muted);
+  margin-top: .5rem;
+}
+
+/* Hover en títulos */
+h2:hover {
+  color: var(--accent);
+  transition: color 0.3s ease;
+}
+
+/* Enlaces */
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== FIGURA DE NUBE ===== */
+.cloud-figure {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--border);
+}
+
+.cloud-figure img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.cloud-figure img:hover { transform: scale(1.03); }
+
+.cloud-figure figcaption {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--muted-2);
+  background: var(--footer-bg);
+  font-size: 0.85rem;
+}
+
+/* ===== BOTONES / NAV ===== */
+.btn-link {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+.btn-link:hover { background: var(--btn-bg-hover); }
+
+.site-nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.site-nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.site-nav a:hover { background: var(--primary); color: #fff; }
+
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+/* ===== DIAGRAMA K41 ===== */
+.k41-cascade { max-width: 900px; margin: 2rem auto; text-align: center; }
+.k41-cascade svg { width: 100%; height: auto; color: inherit; }
+.k41-label { font: 600 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: currentColor; opacity: .9; }
+.k41-axis  { stroke: currentColor; stroke-width: 2; opacity: .75; }
+.k41-axis-label { font: 500 13px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: currentColor; opacity: .9; }
+.eddy { fill: none; stroke: currentColor; stroke-width: 2; opacity: .85; }
+.eddy-big   { stroke-width: 3; }
+.eddy-mid   { stroke-dasharray: 6 4; opacity: .8; }
+.eddy-small { stroke-dasharray: 3 3; opacity: .8; }
+.heat circle { fill: currentColor; opacity: .65; }
+.k41-cascade .eddy,
+.k41-cascade .eddy-big,
+.k41-cascade .eddy-mid,
+.k41-cascade .eddy-small {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes eddyPulse {
+  0%, 100% { transform: scale(1); opacity: .9; }
+  50%      { transform: scale(1.03); opacity: 1; }
+}
+.k41-cascade .eddy-big { animation: eddyPulse 3.2s ease-in-out infinite; }
+@keyframes eddyBlink {
+  0%, 100% { opacity: .85; }
+  50%      { opacity: 1; }
+}
+.k41-cascade .eddy-big { animation: eddyBlink 2.8s ease-in-out infinite; }
+
+/* ===== NUBES ANIMADAS ===== */
+#clouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  background: linear-gradient(to bottom, var(--clouds-top) 0%, var(--clouds-bottom) 100%);
+}
+
+/* Nubes (cuerpo) */
+.cloud {
+  width: 200px;
+  height: 60px;
+  background: var(--cloud-color);
+  border-radius: 200px;
+  position: absolute;
+  top: 50%;
+  filter: blur(8px);
+}
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: var(--cloud-color);
+  border-radius: 100px;
+}
+.cloud::before {
+  width: 100px;
+  height: 80px;
+  top: -15px;
+  left: 10px;
+  transform: rotate(30deg);
+}
+.cloud::after {
+  width: 120px;
+  height: 120px;
+  top: -55px;
+  right: 15px;
+}
+@keyframes moveclouds {
+  0% { left: -300px; }
+  100% { left: 110%; }
+}
+.x1 { top: 20%; transform: scale(1);    opacity: 0.8; animation: moveclouds 8s linear infinite; }
+.x2 { top: 35%; transform: scale(0.6); opacity: 0.6; animation: moveclouds 11s linear infinite; }
+.x3 { top: 55%; transform: scale(0.8); opacity: 0.7; animation: moveclouds 9.5s linear infinite; }
+.x4 { top: 70%; transform: scale(0.75);opacity: 0.75; animation: moveclouds 10.5s linear infinite; }
+.x5 { top: 45%; transform: scale(0.9); opacity: 0.65; animation: moveclouds 12s linear infinite; }
+
+/* Estrellas en modo oscuro */
+.dark-mode #clouds::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px; height: 2px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 
+    50px 100px white,
+    120px 200px white,
+    300px 80px white,
+    600px 150px white,
+    700px 250px white,
+    900px 100px white,
+    1100px 200px white,
+    400px 300px white,
+    800px 400px white,
+    100px 500px white;
+  animation: twinkle 3s infinite alternate;
+  z-index: -2; /* detrás de las nubes */
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* =========================
+   MERMAID – CONTENEDOR + CARD
+   ========================= */
+.mermaid {
+  max-width: 100%;
+  margin: 1.5rem auto;
+}
+
+/* Tarjeta visual (“glass”) alrededor del diagrama */
+.mermaid-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(10px);
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+
+/* Fondo del SVG que dibuja Mermaid (quitamos rectángulo) */
+.mermaid svg > rect {
+  fill: none !important;
+  stroke: none !important;
+}
+
+/* (Si quieres una lámina oscura detrás del SVG en oscuro, descomenta)
+.dark-mode .mermaid svg > rect {
+  fill: rgba(17, 24, 39, 0.6) !important;
+}
+*/
+
+/* =========================
+   FIGURA ESTILO WIKIPEDIA
+   ========================= */
+.wiki-style {
+  float: right;
+  width: 320px;                 /* 280–340px suele ir bien */
+  margin: 0 0 1rem 1rem;        /* separación del texto */
+  text-align: center;
+  font-size: 0.85rem;           /* caption más pequeño */
+}
+.wiki-style img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;       /* si prefieres, usa var(--border) */
+  background: #fff;             /* o var(--bg) */
+  padding: 2px;
+  border-radius: 2px;           /* override al global */
+}
+
+/* Responsive: en móvil, sin flotado y ancho completo */
+@media (max-width: 800px) {
+  .wiki-style {
+    float: none;
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
+
+/* Utilidad para justificar el párrafo de introducción */
+.intro-justify { text-align: justify; }
+
+/* =========================
+   (Opcional) Layout anterior
+   – SOLO si lo sigues usando
+   ========================= */
+.intro-section { display: flex; align-items: flex-start; gap: 2rem; margin: 2rem 0; }
+.intro-text { flex: 2; text-align: justify; }
+.intro-figure { flex: 1; text-align: center; }
+.intro-figure img { max-width: 100%; height: auto; border-radius: 8px; }
+
+/* ============== */
+/* SIDEBAR / TOC  */
+/* ============== */
+
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Sidebar tipo Wikipedia */
+.sidebar {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 12px 12px 16px;
+  border: 1px solid var(--sidebar-border);
+  background: var(--sidebar-bg);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Botón para móviles/colapsar */
+.sidebar-toggle {
+  display: none;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  padding: 4px 2px 8px;
+  cursor: pointer;
+}
+
+/* Lista del índice */
+.toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.toc li {
+  margin: 6px 0;
+  line-height: 1.3;
+}
+.toc a {
+  text-decoration: none;
+  color: var(--toc-text);
+  border-left: 3px solid transparent;
+  padding-left: 8px;
+}
+.toc a:hover { text-decoration: underline; }
+
+/* Enlace activo (sección visible) */
+.toc a.is-active {
+  font-weight: 700;
+  border-left-color: var(--toc-active);
+}
+
+/* Contenido principal */
+#content { min-width: 0; }
+
+/* Responsive: en pantallas pequeñas, la sidebar arriba y colapsable */
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: relative;
+    top: auto;
+    max-height: none;
+  }
+  .sidebar-toggle {
+    display: block;
+  }
+  /* por defecto abierta; se cierra con clase .is-collapsed */
+  .sidebar.is-collapsed .toc { display: none; }
+  .sidebar.is-collapsed .sidebar-toggle::after { content: " ▸"; }
+}
+
+.toc ul ul {
+  margin-left: 1em;   /* indentación de sublistas */
+  font-size: 0.9em;   /* un poco más pequeño */
+}
+
+/* ===== Usabilidad general ===== */
+html { scroll-behavior: smooth; }
+
+/* ========== TOPBAR FIJA ========== */
+/* Tokens para la topbar */
+:root{
+  --topbar-bg: rgba(255,255,255,0.85);
+  --topbar-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  --topbar-h: 56px;
+}
+.dark-mode{
+  --topbar-bg: rgba(17,24,39,0.85);
+}
+
+/* Barra fija que aparece al hacer scroll */
+.topbar{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--topbar-h);
+  background: var(--topbar-bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--topbar-shadow);
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+  z-index: 1000;
+
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.topbar.is-visible{
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Contenido interno alineado */
+.topbar-inner{
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Título en la topbar */
+.topbar-title{
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Botón de tema en la topbar */
+.theme-toggle{
+  margin-left: auto;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.theme-toggle:hover{
+  background: rgba(0,0,0,.04);
+}
+.dark-mode .theme-toggle:hover{
+  background: rgba(255,255,255,.06);
+}
+
+/* Cuando la topbar está visible, empuja la sidebar hacia abajo */
+.has-topbar .sidebar {
+  top: calc(var(--topbar-h) + 1rem);
+}
+
+/* Evita que los títulos queden ocultos al hacer clic en el índice */
+h2, h3 {
+  scroll-margin-top: calc(var(--topbar-h) + 12px);
+}
+
+.topbar {
+  padding-top: env(safe-area-inset-top);
+}
+.topbar-inner {
+  height: calc(var(--topbar-h) - env(safe-area-inset-top));
+}
