@@ -1,0 +1,48 @@
+<figure class="k41-cascade">
+  <svg viewBox="0 0 900 240" role="img" aria-labelledby="k41Title k41Desc">
+    <title id="k41Title">Cascada de energía de Kolmogorov (K41)</title>
+    <desc id="k41Desc">Energía inyectada en grandes escalas que se transfiere a escalas menores hasta disiparse por viscosidad en la escala de Kolmogorov.</desc>
+
+    <text x="60"  y="28" class="k41-label">Inyección (L₀)</text>
+    <text x="360" y="28" class="k41-label">Rango inercial</text>
+    <text x="760" y="28" class="k41-label">Disipación (ℓ₀)</text>
+
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"></path>
+      </marker>
+    </defs>
+    <line x1="80" y1="60" x2="820" y2="60" class="k41-axis" marker-end="url(#arrow)"></line>
+    <text x="830" y="64" class="k41-axis-label">→ transferencia de energía</text>
+
+    <!-- vórtices -->
+    <circle cx="120" cy="150" r="52" class="eddy eddy-big"></circle>
+    <circle cx="120" cy="150" r="32" class="eddy"></circle>
+    <circle cx="120" cy="150" r="18" class="eddy"></circle>
+
+    <circle cx="300" cy="150" r="36" class="eddy eddy-mid"></circle>
+    <circle cx="300" cy="150" r="22" class="eddy"></circle>
+    <circle cx="300" cy="150" r="12" class="eddy"></circle>
+
+    <circle cx="450" cy="150" r="28" class="eddy eddy-mid"></circle>
+    <circle cx="450" cy="150" r="16" class="eddy"></circle>
+    <circle cx="450" cy="150" r="9"  class="eddy"></circle>
+
+    <circle cx="600" cy="150" r="22" class="eddy eddy-mid"></circle>
+    <circle cx="600" cy="150" r="12" class="eddy"></circle>
+    <circle cx="600" cy="150" r="7"  class="eddy"></circle>
+
+    <circle cx="780" cy="150" r="12" class="eddy eddy-small"></circle>
+    <circle cx="780" cy="150" r="7"  class="eddy"></circle>
+    <circle cx="780" cy="150" r="4"  class="eddy"></circle>
+
+    <g class="heat">
+      <circle cx="820" cy="150" r="4"></circle>
+      <circle cx="835" cy="150" r="3"></circle>
+      <circle cx="848" cy="150" r="2"></circle>
+    </g>
+  </svg>
+  <figcaption>
+    {{ include.caption | default: 'Cascada de energía de K41: la energía entra en L₀, se transfiere autosimilarmente en el rango inercial y se disipa por viscosidad en ℓ₀.' }}
+  </figcaption>
+</figure>
