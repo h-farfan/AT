@@ -1,6 +1,8 @@
-title: Turbulencia atmosférica — Demo
+# /_config.yml
+title: AT
 url: "https://h-farfan.github.io"
-baseurl: "/AT"   # si alguna vez publicas como "user site", cámbialo a: /
+baseurl: "/AT"            # porque es un Project Page
 markdown: kramdown
-theme: null                  # usamos tu propio CSS, no un theme de Jekyll
-
+kramdown:
+  input: GFM
+permalink: pretty
