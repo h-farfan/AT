@@ -1,8 +1,11 @@
 # /_config.yml
-title: AT
-url: "https://h-farfan.github.io"
-baseurl: "/AT"            # porque es un Project Page
-markdown: kramdown
+title: AT                           # Título del sitio
+url: "https://h-farfan.github.io"   # Dominio de GitHub Pages (sin el /AT)
+baseurl: "/AT"                      # Subcarpeta del repo, porque no es user page
+markdown: kramdown                  # Procesador de Markdown
 kramdown:
-  input: GFM
-permalink: pretty
+  input: GFM                        # Sintaxis GitHub-Flavored Markdown
+  math_engine: mathjax              # Renderiza matemáticas con MathJax
+  hard_wrap: false                 # No mete <br> en cada salto de línea
+permalink: pretty                   # URLs limpias (sin .html cuando sea posible)
+

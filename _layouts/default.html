@@ -114,12 +114,16 @@
     });
   </script>
 
-  <!-- Configuración de MathJax (global, para todo el sitio) -->
+  <!-- MathJax v3: $...$ y $$...$$ (+ soporta \(...\), \[...\]) -->
   <script>
     window.MathJax = {
       tex: {
-        inlineMath: [['\\(', '\\)']],
-        displayMath: [['\\[', '\\]']]
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script','noscript','style','textarea','pre','code'] // evita code blocks
       }
     };
   </script>
