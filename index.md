@@ -72,5 +72,4 @@ El estudio de la turbulencia atmosférica ha evolucionado a lo largo de más de 
 - von Kármán, T. (1930). Mechanische Ähnlichkeit und Turbulenz. *Nachrichten der GWD zu Göttingen*, 5, 58–76.
 - Wyngaard, J. C. (2010). *Turbulence in the atmosphere*. Cambridge University Press.
 
-[Teoría K41]({{ '/K41.html' | relative_url }})
-
+[Wiki]({{ '/topics/AT-index.html' | relative_url }})

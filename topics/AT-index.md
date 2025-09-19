@@ -13,25 +13,25 @@ Aquí encontrarás los fundamentos físicos, estadísticos y las aplicaciones de
 
 ## 📑 Módulos
 
-1. [Fundamentos de Turbulencia Física](/fundamentos-turbulencia.html)  
+1. [Fundamentos de Turbulencia Física](/AT/fundamentos-turbulencia.html)  
    Navier–Stokes, número de Reynolds, Kolmogórov K41/K62, espectros espaciales, procesos aleatorios.
 
-2. [Campos Escalares Pasivos e Índice de Refracción](/campos-escalars.html)  
+2. [Campos Escalares Pasivos e Índice de Refracción](/AT/campos-escalares.html)  
    Escalares pasivos, modelo de Kraichnan, índice de refracción turbulento, $C_n^2(h)$ y espectros.
 
-3. [Herramientas Estadísticas](/herramientas-estadisticas.html)  
+3. [Herramientas Estadísticas](/AT/herramientas-estadisticas.html)  
    PSD, DFA, Hurst, pruebas estadísticas, métricas de *Andrews & Phillips* (scintilación, coherencia, irradiancia).
 
-4. [Propagación de Haces en Medios Turbulentos](/propagacion-haces.html)  
+4. [Propagación de Haces en Medios Turbulentos](/AT/propagacion-haces.html)  
    Hazes gaussianos, Rytov, beam wander, coherencia, pantallas de fase, aperture averaging.
 
-5. [Aplicaciones](/aplicaciones.html)  
+5. [Aplicaciones](/AT/aplicaciones.html)  
    Comunicaciones FSO, óptica adaptativa, diagnóstico atmosférico, enlaces satélite–tierra.
 
-6. [Recursos Interactivos](/recursos-interactivos.html)  
+6. [Recursos Interactivos](/AT/recursos-interactivos.html)  
    Simulaciones, visualizaciones, datos abiertos, notebooks, ejemplos de *Andrews & Phillips*.
 
-7. [Problemas Abiertos y Futuras Líneas](/problemas-abiertos.html)  
+7. [Problemas Abiertos y Futuras Líneas](/AT/problemas-abiertos.html)  
    Anisotropía, multifractales, procesos estocásticos, comunicaciones cuánticas, limitaciones de modelos clásicos.
 
 ---

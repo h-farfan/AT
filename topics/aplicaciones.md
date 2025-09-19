@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Aplicaciones
-permalink: /plicaciones.html
+permalink: /aplicaciones.html
 ---
 
 # Aplicaciones
