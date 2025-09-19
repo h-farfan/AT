@@ -38,7 +38,7 @@ Aquí encontrarás los fundamentos físicos, estadísticos y las aplicaciones de
 
 ## 🔗 Recursos adicionales
 
-- [Teoría K41 (resumen)](/K41.html)  
+- [Teoría K41 (resumen)](/AT/K41.html)  
 - [Simulación de cascada de energía](/topics/k41-cascade.html)  
 - [Datos experimentales y scripts](/data/)  
 
