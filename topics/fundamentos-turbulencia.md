@@ -6,8 +6,6 @@ permalink: /fundamentos-turbulencia.html
 
 ## 1. Ecuaciones de Navier–Stokes y número de Reynolds
 
-## 1. Ecuaciones de Navier–Stokes y número de Reynolds
-
 Las **ecuaciones de Navier–Stokes** describen el movimiento de un fluido newtoniano incompresible y constituyen el punto de partida para el estudio de la turbulencia:
 
 $$
@@ -69,43 +67,58 @@ Este parámetro mide la razón entre inercia y viscosidad:
 
 #### 1.1.2 Escalado alternativo de la presión y equivalencia
 
-Otra elección común es **escalar la presión con $\rho\nu U/L$** (escala viscosa),
+Otra elección común es **escalar la presión con $\rho\nu U/L$** (escala viscosa):
 
 $$
-\tilde p=\frac{p}{\rho \nu U/L}.
+\tilde p = \frac{p}{\rho \nu U/L}.
 $$
 
 En ese caso, la ecuación adimensional toma la forma
 
 $$
-\frac{\partial \mathbf{u}^*}{\partial t^*}+(\mathbf{u}^*\!\cdot\!\nabla^*)\mathbf{u}^*
-=-Re\,\nabla^* \tilde p+\nabla^{*2}\mathbf{u}^*+\mathbf{f}^*,
+\frac{\partial \mathbf{u}^{\ast}}{\partial t^{\ast}}
++ (\mathbf{u}^{\ast}\cdot\nabla^{\ast})\,\mathbf{u}^{\ast}
+= -Re\,\nabla^{\ast}\tilde p
++ \nabla^{\ast 2}\mathbf{u}^{\ast}
++ \mathbf{f}^{\ast},
 $$
 
-donde el factor $Re$ migra al término de presión. Ambas formulaciones son **equivalentes**: la física no cambia; sólo cambia dónde aparece $Re$. El escalado dinámico es preferido cuando la presión juega el papel de **campo de Lagrange** que impone $\nabla\!\cdot\!\mathbf{u}=0$ al mismo orden que la inercia.
+donde el factor $Re$ migra al término de presión. Ambas formulaciones son **equivalentes**: la física no cambia; sólo cambia dónde aparece $Re$. El escalado dinámico es preferido cuando la presión juega el papel de **campo de Lagrange** que impone $\nabla^{\ast}\cdot\mathbf{u}^{\ast}=0$ al mismo orden que la inercia.
+
 
 ---
 
 #### 1.1.3 Ecuación adimensional en vorticidad
 
-Para resaltar la competencia entre estiramiento y difusión, sea $\boldsymbol{\omega}=\nabla\times\mathbf{u}$ y $\boldsymbol{\omega}^*=(L/U)\boldsymbol{\omega}$. Se obtiene
+Para resaltar la competencia entre estiramiento y difusión, sea 
+$\boldsymbol{\omega} = \nabla \times \mathbf{u}$ y 
+$\boldsymbol{\omega}^{\ast} = (L/U)\,\boldsymbol{\omega}$. 
+Se obtiene
 
 $$
-\frac{\partial \boldsymbol{\omega}^*}{\partial t^*}+(\mathbf{u}^*\!\cdot\!\nabla^*)\boldsymbol{\omega}^*
-=(\boldsymbol{\omega}^*\!\cdot\!\nabla^*)\mathbf{u}^*+\frac{1}{Re}\,\nabla^{*2}\boldsymbol{\omega}^*+\left(\nabla^*\times\mathbf{f}^*\right).
+\frac{\partial \boldsymbol{\omega}^{\ast}}{\partial t^{\ast}}
++ (\mathbf{u}^{\ast}\cdot\nabla^{\ast})\,\boldsymbol{\omega}^{\ast}
+= (\boldsymbol{\omega}^{\ast}\cdot\nabla^{\ast})\,\mathbf{u}^{\ast}
++ \frac{1}{Re}\,\nabla^{\ast 2}\boldsymbol{\omega}^{\ast}
++ \left(\nabla^{\ast}\times\mathbf{f}^{\ast}\right).
 $$
 
-- Término de **estiramiento** $(\boldsymbol{\omega}^*\!\cdot\!\nabla^*)\mathbf{u}^*$: fuente de multiescala en $Re$ altos.  
-- Término **difusivo** $Re^{-1}\nabla^{*2}\boldsymbol{\omega}^*$: suaviza gradientes, dominante en $Re$ bajos.
+- Término de **estiramiento** $(\boldsymbol{\omega}^{\ast}\cdot\nabla^{\ast})\,\mathbf{u}^{\ast}$: fuente de multiescala en $Re$ altos.  
+- Término **difusivo** $Re^{-1}\,\nabla^{\ast 2}\boldsymbol{\omega}^{\ast}$: suaviza gradientes, dominante en $Re$ bajos.
+
 
 ---
 
 #### 1.1.4 Balance energético adimensional
 
-Sea la energía cinética específica $k=\tfrac12 |\mathbf{u}|^2$ y $k^*=\tfrac12 |\mathbf{u}^*|^2$. En ausencia de flujo de frontera y con forzamiento $\mathbf{f}$, el balance integrado conduce a
+Sea la energía cinética específica $k = \tfrac12 |\mathbf{u}|^2$ y 
+$k^{\ast} = \tfrac12 |\mathbf{u}^{\ast}|^2$. 
+En ausencia de flujo de frontera y con forzamiento $\mathbf{f}$, el balance integrado conduce a
 
 $$
-\frac{d}{dt^*}\langle k^*\rangle \;=\; \langle \mathbf{u}^*\!\cdot\!\mathbf{f}^*\rangle \;-\; \frac{1}{Re}\,\langle |\nabla^*\mathbf{u}^*|^2\rangle,
+\frac{d}{dt^{\ast}}\langle k^{\ast}\rangle 
+= \langle \mathbf{u}^{\ast}\cdot\mathbf{f}^{\ast}\rangle 
+- \frac{1}{Re}\,\langle\,|\nabla^{\ast}\mathbf{u}^{\ast}|^2\,\rangle,
 $$
 
 lo que muestra explícitamente que la disipación viscosa está **ponderada por $Re^{-1}$**.
@@ -118,25 +131,27 @@ Si la dinámica incluye efectos adicionales, surgen otros parámetros al adimens
 
 - **Gravedad (flujos libres superficiales o estratificados)**: número de Froude  
   $$
-  Fr=\frac{U}{\sqrt{gH}}.
+  Fr = \frac{U}{\sqrt{gH}}.
   $$
 
 - **Rotación (marcos en rotación a $2\Omega$)**: número de Rossby  
   $$
-  Ro=\frac{U}{2\Omega L}.
+  Ro = \frac{U}{2\Omega L}.
   $$
 
 - **Compresibilidad**: número de Mach  
   $$
-  Ma=\frac{U}{c}.
+  Ma = \frac{U}{c}.
   $$
 
-- **Magnetohidrodinámica (MHD)**: Reynolds magnético  
+- **Magnetohidrodinámica (MHD)**: Reynolds magnético y número de Alfvén  
   $$
-  Rm=\frac{U L}{\eta_m}, \quad A=\frac{U}{V_A}.
+  Rm = \frac{U L}{\eta_m}, 
+  \qquad 
+  A = \frac{U}{V_A}.
   $$
 
-Estos parámetros coexisten con $Re$ y definen **regímenes asintóticos** distintos (p. ej., $Re\gg1$, $Ro\ll1$ para dinámica casi geostrófica).
+Estos parámetros coexisten con $Re$ y definen **regímenes asintóticos** distintos (por ejemplo, $Re \gg 1$, $Ro \ll 1$ para dinámica casi geostrófica).
 
 ---
 
