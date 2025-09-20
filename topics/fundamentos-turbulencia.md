@@ -171,23 +171,89 @@ La definición de $Re$ depende de la **elección informada** de $L$ y $U$. En fl
 
 ### 1.2 Escalas energéticas y disipación
 
-La tasa de disipación de energía por unidad de masa se define como
+La turbulencia se caracteriza por la transferencia de energía cinética desde escalas grandes (donde se inyecta) hacia escalas pequeñas (donde se disipa). El papel de la viscosidad aparece de manera explícita en la **tasa de disipación de energía cinética por unidad de masa**, definida como
 
 $$
-\varepsilon = 2\nu\, s_{ij} s_{ij}, \quad
-s_{ij}=\tfrac{1}{2}\left(\frac{\partial u_i}{\partial x_j}+\frac{\partial u_j}{\partial x_i}\right).
+\varepsilon(\mathbf{x},t) = 2\nu\, s_{ij} s_{ij},
+\qquad
+s_{ij} = \tfrac{1}{2}\left(
+\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}
+\right),
 $$
 
-A partir de $\varepsilon$ y $\nu$ se introducen las **escalas de Kolmogórov**:
+donde $s_{ij}$ es el tensor de deformación simétrica (tensor de tasas de cizalla).  
+La magnitud $\varepsilon$ tiene dimensiones de energía por unidad de masa y tiempo, y mide la rapidez con la que la energía cinética turbulenta se transforma en calor interno debido a la viscosidad.
+
+---
+
+#### 1.2.1 Promedio y homogeneidad
+
+En turbulencia desarrollada se trabaja habitualmente con el valor medio espacial o temporal de la disipación:
 
 $$
-\eta = \left(\frac{\nu^3}{\varepsilon}\right)^{1/4}, \quad
-u_\eta = \left(\nu \varepsilon\right)^{1/4}, \quad
-\tau_\eta = \left(\frac{\nu}{\varepsilon}\right)^{1/2}.
+\langle \varepsilon \rangle =
+\left\langle 2\nu\, s_{ij} s_{ij} \right\rangle,
 $$
 
-Estas representan las longitudes, velocidades y tiempos característicos de los remolinos más pequeños donde domina la disipación viscosa.
+el cual se considera aproximadamente **constante** en el rango inercial, independiente de la escala y del punto en el campo cuando se asume isotropía y homogeneidad local.
 
+---
+
+#### 1.2.2 Escalas de Kolmogórov
+
+A partir de $\nu$ y $\varepsilon$ se pueden construir **tres escalas fundamentales**, conocidas como **escalas de Kolmogórov**:
+
+- **Longitud de Kolmogórov**:
+  $$
+  \eta = \left(\frac{\nu^3}{\varepsilon}\right)^{1/4},
+  $$
+  que representa el tamaño característico de los remolinos más pequeños antes de la disipación viscosa.
+
+- **Velocidad de Kolmogórov**:
+  $$
+  u_{\eta} = \left(\nu \varepsilon\right)^{1/4},
+  $$
+  velocidad típica asociada a las fluctuaciones en la escala $\eta$.
+
+- **Tiempo de Kolmogórov**:
+  $$
+  \tau_{\eta} = \left(\frac{\nu}{\varepsilon}\right)^{1/2},
+  $$
+  escala temporal de los movimientos disipativos.
+
+Estas escalas marcan la transición entre el régimen inercial y el régimen dominado por la viscosidad.
+
+---
+
+#### 1.2.3 Interpretación física
+
+- La escala $\eta$ decrece cuando $\varepsilon$ crece o cuando $\nu$ disminuye: en flujos con alto número de Reynolds, las estructuras disipativas son extremadamente pequeñas.  
+- $u_{\eta}$ y $\tau_{\eta}$ reflejan las fluctuaciones más rápidas y pequeñas del campo turbulento, difíciles de medir experimentalmente.  
+- El cociente $L/\eta$ (donde $L$ es la escala integral de inyección) crece con $Re$ y da una medida de la **separación de escalas** en la turbulencia desarrollada.
+
+---
+
+#### 1.2.4 Relación con el número de Reynolds
+
+Si se define el número de Reynolds a escala integral $Re = UL/\nu$, puede estimarse la relación entre escalas grandes y pequeñas. En turbulencia isotrópica homogénea:
+
+$$
+\frac{L}{\eta} \sim Re^{3/4}.
+$$
+
+Esto muestra que a medida que $Re$ aumenta, la gama de escalas presentes en el flujo se amplía significativamente. Por esta razón, la turbulencia en altos Reynolds es un fenómeno **multiescala**.
+
+---
+
+#### 1.2.5 Importancia en simulaciones y experimentos
+
+- En simulaciones directas de Navier–Stokes (DNS), la malla debe resolver hasta la escala de Kolmogórov $\eta$, lo que vuelve los cálculos prohibitivamente costosos a Reynolds altos.  
+- En experimentos, las sondas (como anemometría de hilo caliente) deben tener una respuesta temporal comparable a $\tau_{\eta}$ para capturar fielmente las fluctuaciones.  
+- En modelos de turbulencia (LES, RANS), la física de $\eta$ se parametriza en lugar de resolverse explícitamente.
+
+---
+
+En conclusión, las **escalas de Kolmogórov** constituyen la base para comprender la acción de la viscosidad en turbulencia y delimitan el extremo inferior de la cascada de energía. Su relación con el número de Reynolds explica por qué la turbulencia es un fenómeno de complejidad creciente a medida que $Re$ se hace grande.
 
 ---
 
