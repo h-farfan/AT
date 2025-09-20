@@ -114,7 +114,7 @@
     });
   </script>
 
-  <!-- MathJax v3: $...$ y $$...$$ (+ soporta \(...\), \[...\]) -->
+  <!-- MathJax v3: $...$, $$...$$ (soporta \(...\), \[...\]) -->
   <script>
     window.MathJax = {
       tex: {
@@ -123,11 +123,21 @@
         processEscapes: true
       },
       options: {
-        skipHtmlTags: ['script','noscript','style','textarea','pre','code'] // evita code blocks
+        // Evita que procese bloques de código, pre, etc.
+        skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+      },
+      chtml: {
+        // Fuerza consistencia de tamaños y fuentes
+        scale: 1,
+        matchFontHeight: false,
+        // Carga fuentes WOFF de MathJax para evitar sustituciones raras
+        fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2'
       }
     };
   </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- Loader CHTML (no MML) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
 
 </head>
 
@@ -144,7 +154,7 @@
       <a href="{{ '/' | relative_url }}">Inicio</a>
       <a href="{{ '/K41.html' | relative_url }}">Teoría K41</a>
     </nav>
-    <button id="toggle-dark" aria-pressed="false" aria-label="Cambiar modo oscuro">🌙 Modo oscuro</button>
+    <button id="toggle-dark" class="theme-toggle" aria-pressed="false" aria-label="Cambiar modo oscuro">🌙 Modo oscuro</button>
   </header>
 
   <div class="layout">

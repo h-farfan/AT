@@ -45,17 +45,6 @@
   --btn-text: #ffffff;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-               "Helvetica Neue", "Arial", "Noto Sans", sans-serif,
-               "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-               "Noto Color Emoji";
-  font-size: 16px;
-  line-height: 1.6;
-  color: #202122;   /* gris oscuro usado en Wikipedia */
-  background-color: #ffffff;
-}
-
 /* Noche */
 .dark-mode{
   --bg: #1a1a1a;
@@ -113,6 +102,9 @@ html.is-theming *, html.is-theming *::before, html.is-theming *::after{
 
 body {
   margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--text);
   background: var(--bg);
 }
@@ -258,12 +250,14 @@ footer {
   0%, 100% { transform: scale(1); opacity: .9; }
   50%      { transform: scale(1.03); opacity: 1; }
 }
-.k41-cascade .eddy-big { animation: eddyPulse 3.2s ease-in-out infinite; }
 @keyframes eddyBlink {
   0%, 100% { opacity: .85; }
   50%      { opacity: 1; }
 }
-.k41-cascade .eddy-big { animation: eddyBlink 2.8s ease-in-out infinite; }
+.k41-cascade .eddy-big {
+  animation: eddyPulse 3.2s ease-in-out infinite,
+             eddyBlink 2.8s ease-in-out infinite;
+}
 
 /* ===== NUBES ANIMADAS ===== */
 #clouds {
@@ -597,4 +591,30 @@ h2, h3 {
 }
 .topbar-inner {
   height: calc(var(--topbar-h) - env(safe-area-inset-top));
+}
+
+/* ================================
+   Ajustes MathJax (fonts + tamaños)
+   ================================ */
+
+/* Fuente uniforme para todo el sitio */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Forzar la misma fuente dentro de MathJax (evita “kanji fantasma”) */
+.mjx-container * {
+  font-family: "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Inline y display del mismo tamaño que el texto */
+.mjx-container .mjx-math,
+.mjx-container .mjx-chtml,
+.mjx-container .mjx-display {
+  font-size: 1em !important;
+}
+
+/* Opcional: si quieres que el display resalte un poco (10% más grande) */
+.mjx-container .mjx-display {
+  font-size: 1.1em !important;
 }
